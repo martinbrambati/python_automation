@@ -37,15 +37,26 @@ class MiniTwit(object):
 		#assert title_to_assert in self.driver.
 
 	def login(self, title_to_assert):
-
+		self.driver.get(MiniTwit.urls['base'] + MiniTwit.urls['login'])
+        #username
+		username = self.driver.find_element_by_name("username")
+		username.send_keys(self.user)
+        #Password
+		password = self.driver.find_element_by_name("password")
+		password.send_keys(self.password)
+        #Submit
+		submit = self.driver.find_element_by_xpath("//input[@type='submit']")
+		self.actions.click(submit)
+		self.actions.perform()
+		
 	
 	def close(self):
-		driver.close()
+		self.driver.close()
 
 
 
 #Test
-test = MiniTwit('usuario4', 'password3', 'ma4@massa.com')
-test.sign_up()
+test = MiniTwit('usuario2', 'password2', 'ma4@massa.com')
+#test.sign_up()
 test.login('You were logged in')
 test.close()
