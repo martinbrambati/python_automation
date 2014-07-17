@@ -56,7 +56,7 @@ class MiniTwit(object):
 
 
 #Test
-test = MiniTwit('usuario2', 'password2', 'ma4@massa.com')
-#test.sign_up()
+test = MiniTwit('usuario3', 'password3', 'ma3@massa.com')
+test.sign_up()
 test.login('You were logged in')
 test.close()
